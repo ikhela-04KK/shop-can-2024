@@ -1,7 +1,12 @@
 
 // vercel/app
 
-async function getRepo(name:string): Promise<repository>{
+type Repository = {
+    id:number, 
+    name:string, 
+    full_name:string
+  }
+async function getRepo(name:string): Promise<Repository>{
     const res = await fetch(`https://api.github.com/repos/vercel/${name}`);
     return res.json();
 }
